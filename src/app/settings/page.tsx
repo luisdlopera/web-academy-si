@@ -1,13 +1,14 @@
 import { StudentHeader } from '@/components/Students';
 import { ButtonMenu } from '@/components/Students/StudentMenu/ButtonMenu';
 import { Input, Link } from '@nextui-org/react';
-import { ChevronRight, Save, UserCog } from 'lucide-react';
+import { ChevronRight, Save, UserCog, Lock } from 'lucide-react';
 
 export default function settingsPage() {
+
     return (
         <div className='flex items-start'>
             <a href='/students' className='fixed top-0 w-full h-2 bg-yellow z-10'></a>
-            <div className=' w-1/4 bg-white h-screen flex flex-col gap-4 items-center justify-start p-10'>
+            <div className='w-1/4 bg-white h-screen flex flex-col gap-4 items-center justify-start p-10'>
                 <Link href='/students'>
                     <h1 className='w-full font-black text-3xl mb-14'>ACADEMY SI</h1>
                 </Link>
@@ -16,7 +17,7 @@ export default function settingsPage() {
             </div>
             <StudentHeader>
 
-                <div className='w-full h-screen flex flex-col items-center gap-5 bg-white rounded-md p-10'>
+                <div className='w-full flex flex-col items-center gap-5 bg-white rounded-md p-10 mb-10'>
                     <div className='flex flex-col justify-center text-center'>
                         <h2 className='font-bold text-2xl'>Configuracion del estudiante</h2>
                     </div>
@@ -77,8 +78,37 @@ export default function settingsPage() {
                         content={'Actualizar datos'}
                         isActive={true}
                     />
+                    <div className='flex flex-col justify-center text-center'>
+                        <h2 className='font-bold text-2xl'>Cambiar contraseña</h2>
+                    </div>
+                    <Input
+                        type='text'
+                        label='Contraseña actual'
+                        placeholder='*********'
+                        className='max-w-md'
+                    />
+                    <Input
+                        type='text'
+                        label='Nueva contraseña'
+                        placeholder='*********'
+                        className='max-w-md'
+                    />
+                    <Input
+                        type='text'
+                        label='Confirmar contraseña'
+                        placeholder='*********'
+                        className='max-w-md'
+                    />
+                    <ButtonMenu
+                        ButtonLink='/settings'
+                        startContent={<Lock  />}
+                        endContent={<ChevronRight  />}
+                        content={'Actualizar Contraseña'}
+                        isActive={true}
+                    />
                 </div>
             </StudentHeader>
         </div>
     );
 }
+

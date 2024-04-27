@@ -22,6 +22,11 @@ const config: Config = {
 			fontFamily: {
 				urbanist: [`var(--font-urbanist)`, 'sans-serif'],
 			},
+			backgroundImage: {
+				bgLogin: `url('/assets/backgrounds/bgLogin.jpg')`,
+				bgText: 'linear-gradient(232deg, #FE4446 14.05%, #0085FF 116.55%)',
+				bgWork: 'linear-gradient(232deg, #000 14.05%, #0085FF 116.55%);',
+			},
 		},
 	},
 	plugins: [nextui()],

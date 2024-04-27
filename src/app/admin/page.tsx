@@ -2,7 +2,7 @@ import { ButtonMenu } from '@/components/Students/StudentMenu/ButtonMenu';
 import { Input } from '@nextui-org/react';
 import { ChevronRight, FilePenLine } from 'lucide-react';
 
-export default function StudentPage() {
+export default function adminPage() {
 	return (
 		<div className='w-full h-screen flex flex-col items-center gap-5 bg-white rounded-md p-10'>
 			<div className='flex flex-col justify-center text-center'>
