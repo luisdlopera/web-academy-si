@@ -1,2 +1,2 @@
-export { StudentHeader } from './StudentHeader';
-export { StudentMenu } from './StudentMenu';
+export { TeacherHeader } from './TeacherHeader'; 
+export { TeacherMenu } from './TeacherMenu';

@@ -1,8 +1,65 @@
-import { ButtonMenu } from '@/components/Students/StudentMenu/ButtonMenu';
+'use client';
+
 import { Input } from '@nextui-org/react';
-import { ChevronRight, FilePenLine } from 'lucide-react';
+import axios from 'axios';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function StudentPage() {
+
+	const [token, setToken] = useState('')
+	const [studentData, setStudentData] = useState({
+        nombres: '',
+        apellidos: '',
+        tipoDocumento: '',
+        documentoIdentidad: '',
+        emailInstitucional: '',
+        carnet: '',
+        numeroContacto: '',
+        gradoAcademico: ''
+    });
+
+	useEffect(() => {
+        const storedToken = sessionStorage.getItem('token');
+        if (storedToken) {
+            setToken(storedToken);
+        }
+    }, []);
+
+	// console.log('token', token)
+
+	
+	const fetchStudentById = useCallback(async () => {
+		const url = `${process.env.NEXT_PUBLIC_APP_URL_BACKEND}/student/getbyid/1`;
+
+		try {
+			const response = await axios.get(url, {
+				headers: {
+					'accept': 'application/json',
+					'Authorization': `${token}`
+				}
+			});
+			console.log('response', response.data);
+
+			setStudentData({
+                nombres: response.data.nombre,
+                apellidos: response.data.apellido,
+                tipoDocumento: response.data.tipo_documento,
+                documentoIdentidad: response.data.documento,
+                emailInstitucional: response.data.Email,
+                carnet: response.data.carne,
+                numeroContacto: response.data.telefono,
+                gradoAcademico: response.data.grado
+            });
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	}, [token]); 
+
+	useEffect(() => {
+		fetchStudentById();
+	}, [fetchStudentById]); 
+
+
 	return (
 		<div className='w-full h-screen flex flex-col items-center gap-5 bg-white rounded-md p-10'>
 			<div className='flex flex-col justify-center text-center'>
@@ -14,60 +71,60 @@ export default function StudentPage() {
 					isReadOnly
 					type='text'
 					label='Nombres'
-					defaultValue='Maria Liseth'
+					value={studentData.nombres}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='text'
 					label='Apellidos'
-					defaultValue='Perez Diaz'
+					value={studentData.apellidos}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='text'
 					label='Tipo de documento'
-					defaultValue='CC'
+					value={studentData.tipoDocumento}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='number'
 					label='Documento de identidad'
-					defaultValue='1000465456'
+					value={studentData.documentoIdentidad}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='email'
 					label='Email Institucional'
-					defaultValue='maira.perez@correo.edu.co'
+					value={studentData.emailInstitucional}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='text'
 					label='Carné'
-					defaultValue='20157141'
+					value={studentData.carnet}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='number'
 					label='Numero de contacto'
-					defaultValue='3012561215'
+					value={studentData.numeroContacto}
 					className='max-w-md'
 				/>
 				<Input
 					isReadOnly
 					type='text'
 					label='Grado Acadédemico'
-					defaultValue='10'
+					value={studentData.gradoAcademico}
 					className='max-w-md'
 				/>
 			</div>
-			
+
 		</div>
 	);
 }

@@ -1,0 +1,1 @@
+export { TeacherMenu } from './TeacherMenu';

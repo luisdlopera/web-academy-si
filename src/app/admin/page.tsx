@@ -1,4 +1,4 @@
-import { ButtonMenu } from '@/components/Students/StudentMenu/ButtonMenu';
+import { ButtonMenu } from '@/components/Shared/ButtonMenu';
 import { Input } from '@nextui-org/react';
 import { ChevronRight, FilePenLine } from 'lucide-react';
 

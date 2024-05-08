@@ -1,1 +1,1 @@
-export { StudentHeader } from './StudentHeader'
+export { TeacherHeader } from './TeacherHeader'

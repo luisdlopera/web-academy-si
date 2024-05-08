@@ -2,11 +2,11 @@
 
 import { Link } from '@nextui-org/react';
 import { BadgeCheck, CalendarClock, ChevronRight, Home, ListChecks, Notebook } from 'lucide-react';
-import { ButtonMenu } from './ButtonMenu';
+import { ButtonMenu } from '@/components/Shared/ButtonMenu'
 import { useEffect, useState } from 'react';
 import { usePathname  } from 'next/navigation';
 
-const StudentMenu = () => {
+const TeacherMenu = () => {
 
     const currentRoute = usePathname();
 
@@ -21,35 +21,35 @@ const StudentMenu = () => {
 
     useEffect(() => {
         switch (currentRoute) {
-            case '/students':
+            case '/teachers':
                 setIsStudentsActive(true);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/courses':
+            case '/teachers/courses':
                 setIsStudentsActive(false);
                 setIsCoursesActive(true);
                 setIsScheduleActive(false);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/schedule':
+            case '/teachers/schedule':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(true);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/ratings':
+            case '/teachers/ratings':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
                 setIsRatingsActive(true);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/assistance':
+            case '/teachers/assistance':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
@@ -71,35 +71,35 @@ const StudentMenu = () => {
                 <h1 className='w-full font-black text-3xl mb-14'>ACADEMY SI</h1>
             </Link>
             <ButtonMenu
-                ButtonLink='/students'
+                ButtonLink='/teachers'
                 startContent={<Home color={isStudentsActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isStudentsActive ? colorWhite : colorBlue} size='15' />}
                 content={'Inicio'}
                 isActive={isStudentsActive}
             />
             <ButtonMenu
-                ButtonLink='/students/courses'
+                ButtonLink='/teachers/groups'
                 startContent={<Notebook color={isCoursesActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isCoursesActive ? colorWhite : colorBlue} size='15' />}
-                content={'Asignaturas'}
+                content={'Grupos'}
                 isActive={isCoursesActive}
             />
             <ButtonMenu
-                ButtonLink='/students/schedule'
+                ButtonLink='/teachers/schedule'
                 startContent={<CalendarClock color={isScheduleActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isScheduleActive ? colorWhite : colorBlue} size='15' />}
                 content={'Horario'}
                 isActive={isScheduleActive}
             />
             <ButtonMenu
-                ButtonLink='/students/ratings'
+                ButtonLink='/teachers/ratings'
                 startContent={<BadgeCheck color={isRatingsActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isRatingsActive ? colorWhite : colorBlue} size='15' />}
                 content={'Calificaciones'}
                 isActive={isRatingsActive}
             />
             <ButtonMenu
-                ButtonLink='/students/assistance'
+                ButtonLink='/teachers/assistance'
                 startContent={<ListChecks color={isAssistanceActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isAssistanceActive ? colorWhite : colorBlue} size='15' />}
                 content={'Asistencia'}
@@ -109,4 +109,4 @@ const StudentMenu = () => {
     )
 }
 
-export { StudentMenu }
+export { TeacherMenu }

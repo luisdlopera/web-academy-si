@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
-import { Profile } from './Profile/Profile';
+import { Profile } from '@/components/Shared/Profile';
 
 interface StudentHeaderProps {
     children?: ReactNode;
 }
 
-const StudentHeader = ({ children }: StudentHeaderProps) => {
+const TeacherHeader = ({ children }: StudentHeaderProps) => {
     return (
         <section className='flex flex-col justify-end w-3/4 px-8'>
             <div className='w-full flex items-center justify-between h-16 my-6 gap-2 bg-secondary'>
@@ -19,4 +19,4 @@ const StudentHeader = ({ children }: StudentHeaderProps) => {
     )
 }
 
-export { StudentHeader }
+export { TeacherHeader }

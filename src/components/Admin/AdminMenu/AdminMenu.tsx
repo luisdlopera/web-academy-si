@@ -2,11 +2,11 @@
 
 import { Link } from '@nextui-org/react';
 import { BadgeCheck, CalendarClock, ChevronRight, Home, ListChecks, Notebook } from 'lucide-react';
-import { ButtonMenu } from '@/components/Shared/ButtonMenu';
+import { ButtonMenu } from '@/components/Shared/ButtonMenu'
 import { useEffect, useState } from 'react';
 import { usePathname  } from 'next/navigation';
 
-const StudentMenu = () => {
+const AdminMenu = () => {
 
     const currentRoute = usePathname();
 
@@ -21,35 +21,35 @@ const StudentMenu = () => {
 
     useEffect(() => {
         switch (currentRoute) {
-            case '/students':
+            case '/admin':
                 setIsStudentsActive(true);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/courses':
+            case '/admin/courses':
                 setIsStudentsActive(false);
                 setIsCoursesActive(true);
                 setIsScheduleActive(false);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/schedule':
+            case '/admin/schedule':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(true);
                 setIsRatingsActive(false);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/ratings':
+            case '/admin/ratings':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
                 setIsRatingsActive(true);
                 setIsAssistanceActive(false);
                 break;
-            case '/students/assistance':
+            case '/admin/assistance':
                 setIsStudentsActive(false);
                 setIsCoursesActive(false);
                 setIsScheduleActive(false);
@@ -67,46 +67,53 @@ const StudentMenu = () => {
 
     return (
         <header className='fixed w-1/4 bg-white h-screen flex flex-col gap-4 items-center justify-start p-10'>
-            <Link href='/students'>
+            <Link href='/admin'>
                 <h1 className='w-full font-black text-3xl mb-14'>ACADEMY SI</h1>
             </Link>
             <ButtonMenu
-                ButtonLink='/students'
+                ButtonLink='/admin'
                 startContent={<Home color={isStudentsActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isStudentsActive ? colorWhite : colorBlue} size='15' />}
                 content={'Inicio'}
                 isActive={isStudentsActive}
             />
             <ButtonMenu
-                ButtonLink='/students/courses'
+                ButtonLink='/admin/users'
                 startContent={<Notebook color={isCoursesActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isCoursesActive ? colorWhite : colorBlue} size='15' />}
-                content={'Asignaturas'}
+                content={'Usuarios'}
                 isActive={isCoursesActive}
             />
             <ButtonMenu
-                ButtonLink='/students/schedule'
+                ButtonLink='/admin/subjets'
                 startContent={<CalendarClock color={isScheduleActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isScheduleActive ? colorWhite : colorBlue} size='15' />}
-                content={'Horario'}
+                content={'Asignaturas'}
                 isActive={isScheduleActive}
             />
             <ButtonMenu
-                ButtonLink='/students/ratings'
+                ButtonLink='/admin/groups'
                 startContent={<BadgeCheck color={isRatingsActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isRatingsActive ? colorWhite : colorBlue} size='15' />}
-                content={'Calificaciones'}
+                content={'Grupos'}
                 isActive={isRatingsActive}
             />
             <ButtonMenu
-                ButtonLink='/students/assistance'
+                ButtonLink='/admin/schedule'
                 startContent={<ListChecks color={isAssistanceActive ? colorWhite : colorBlue} />}
                 endContent={<ChevronRight color={isAssistanceActive ? colorWhite : colorBlue} size='15' />}
-                content={'Asistencia'}
+                content={'Horario'}
+                isActive={isAssistanceActive}
+            />
+            <ButtonMenu
+                ButtonLink='/admin/periods'
+                startContent={<ListChecks color={isAssistanceActive ? colorWhite : colorBlue} />}
+                endContent={<ChevronRight color={isAssistanceActive ? colorWhite : colorBlue} size='15' />}
+                content={'Periodos'}
                 isActive={isAssistanceActive}
             />
         </header>
     )
 }
 
-export { StudentMenu }
+export { AdminMenu }
