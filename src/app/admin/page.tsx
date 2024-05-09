@@ -1,5 +1,5 @@
 import { ButtonMenu } from '@/components/Shared/ButtonMenu';
-import { Input } from '@nextui-org/react';
+import { Input } from '@nextui-org/input';
 import { ChevronRight, FilePenLine } from 'lucide-react';
 
 export default function adminPage() {

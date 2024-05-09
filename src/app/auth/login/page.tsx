@@ -1,4 +1,6 @@
-import { Image, Card, CardBody, CardHeader, Link } from '@nextui-org/react';
+import { Image } from '@nextui-org/image';
+import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/card';
+import { Link } from '@nextui-org/link';
 import NextLink from 'next/link';
 import { SignInForm } from '@/components/Forms';
 

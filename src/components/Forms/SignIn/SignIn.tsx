@@ -5,7 +5,10 @@ import { useEffect, useState } from 'react';
 // Components
 // import { Spinner } from '@/components/Spinner'
 import { Inputs } from './types';
-import { Button, Input, Link, Spinner, user } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Link } from '@nextui-org/link';
+import { Input } from '@nextui-org/input';
+import { Spinner } from '@/components/Shared/Spinner';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 // import { loginSchema } from '@/schemas';
@@ -22,25 +25,25 @@ export function SignInForm() {
     const [isVisible, setIsVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const { 
-        register, 
-        handleSubmit, 
-        formState: { errors } 
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
     } = useForm<Inputs>({
         // resolver: zodResolver(loginSchema)
     });
 
-    const onSubmit: SubmitHandler<Inputs> = async ({ user, password })=> {
+    const onSubmit: SubmitHandler<Inputs> = async ({ user, password }) => {
         try {
             setIsLoading(true);
             const response = await loginStudents(user, password);
             if (response === true) {
                 router.push('/students');
             }
-        }catch (error) {
+        } catch (error) {
             toast.error('¡Ups! Algo salió mal, al intentar iniciar sesión.');
             console.error('Error Login:', error);
-        }finally {
+        } finally {
             setIsLoading(false);
         }
     };

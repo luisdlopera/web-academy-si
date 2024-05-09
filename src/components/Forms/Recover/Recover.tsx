@@ -3,7 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 // Components
-import { Button, Input, Link, Spinner } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/Input';
+import { Link } from '@nextui-org/link';
+import { Spinner } from '@/components/Shared/Spinner';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-toastify';

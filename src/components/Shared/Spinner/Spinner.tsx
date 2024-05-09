@@ -1,7 +1,7 @@
 import NextImage from 'next/image';
 // Sources
-import { Image } from '@nextui-org/react';
-import { Spinner as NextSpinner } from '@nextui-org/react';
+import { Image } from '@nextui-org/image';
+import { Spinner as NextSpinner } from '@/components/Shared/Spinner';
 
 export function Spinner() {
     return (

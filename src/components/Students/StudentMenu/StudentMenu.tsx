@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@nextui-org/react';
+import { Link } from '@nextui-org/link';
 import { BadgeCheck, CalendarClock, ChevronRight, Home, ListChecks, Notebook } from 'lucide-react';
 import { ButtonMenu } from '@/components/Shared/ButtonMenu';
 import { useEffect, useState } from 'react';

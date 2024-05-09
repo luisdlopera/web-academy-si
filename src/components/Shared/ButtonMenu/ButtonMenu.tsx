@@ -1,7 +1,7 @@
 'use client';
 
-import { Button, Link } from '@nextui-org/react';
-import { ChevronRight, Home } from 'lucide-react';
+import { Button } from '@nextui-org/button';
+import Link from 'next/link'
 import { useEffect, useState } from 'react';
 
 type ButtonMenuProps = {
@@ -14,7 +14,7 @@ type ButtonMenuProps = {
     iconSize?: string;
 }
 
-const ButtonMenu = ({ButtonLink, startContent, endContent, content, isActive }: ButtonMenuProps) => {
+const ButtonMenu = ({ ButtonLink, startContent, endContent, content, isActive }: ButtonMenuProps) => {
 
     const [newClass, setNewClass] = useState<string>('');
 
@@ -26,7 +26,7 @@ const ButtonMenu = ({ButtonLink, startContent, endContent, content, isActive }: 
             setNewClass(`bg-secondary border text-base`)
         }
     }, [isActive])
-    
+
     return (
         <>
             <Button

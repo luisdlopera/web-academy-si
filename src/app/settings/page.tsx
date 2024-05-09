@@ -1,6 +1,7 @@
 import { StudentHeader } from '@/components/Students';
-import { ButtonMenu } from '@/components/Students/StudentMenu/ButtonMenu';
-import { Input, Link } from '@nextui-org/react';
+import { ButtonMenu } from '@/components/Shared/ButtonMenu';
+import { Input } from '@nextui-org/input';
+import { Link } from '@nextui-org/link';
 import { ChevronRight, Save, UserCog, Lock } from 'lucide-react';
 
 export default function settingsPage() {
